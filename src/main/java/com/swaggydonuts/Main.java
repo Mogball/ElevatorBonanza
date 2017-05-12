@@ -22,9 +22,9 @@ public class Main {
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.setPreferredSize(new Dimension(1600, 800));
 
-		JButton exampleButton = new JButton("Click me");
-		exampleButton.setLocation(200, 200);
-		exampleButton.setSize(200, 50);
+		JButton exampleButton = new JButton("Stats");
+		exampleButton.setLocation(0, 700);
+		exampleButton.setSize(100, 50);
 		exampleButton.setLayout(null);
 
 		JLabel exampleLabel = new JLabel();
