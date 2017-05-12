@@ -30,4 +30,12 @@ public class Car {
 		this.people = new ArrayList<>();
 	}
 
+	public boolean isValid(Event e) {
+
+	}
+
+	public int ETD(Event e) {
+
+	}
+
 }

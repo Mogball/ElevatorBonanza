@@ -27,14 +27,3 @@ public class Controller {
 	}
 
 }
-
-class Floor {
-
-	// Persons currently waiting on the floor
-	List<Person> people;
-
-	Floor() {
-		people = new ArrayList<>();
-	}
-
-}
