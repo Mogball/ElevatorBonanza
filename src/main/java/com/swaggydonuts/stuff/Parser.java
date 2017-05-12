@@ -1,8 +1,8 @@
 package com.swaggydonuts.stuff;
 
 import javax.json.*;
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,9 +13,8 @@ import java.util.List;
  */
 public class Parser {
 
-	public static Input parseInput(String path) throws IOException {
-		try (FileInputStream fis = new FileInputStream(path)) {
-			JsonReader jreader = Json.createReader(fis);
+	public static Input parseInput(InputStream is) throws IOException {
+			JsonReader jreader = Json.createReader(is);
 			JsonObject jobject = jreader.readObject();
 			Integer floors = jobject.getInt("floors");
 			Integer elevators = jobject.getInt("elevators");
@@ -38,7 +37,6 @@ public class Parser {
 			}
 			jreader.close();
 			return input;
-		}
 	}
 
 }
