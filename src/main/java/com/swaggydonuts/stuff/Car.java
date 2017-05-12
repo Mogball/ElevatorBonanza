@@ -31,7 +31,10 @@ public class Car {
 	}
 
 	public boolean isValid(Event e) {
-
+		if (state == 0) return true;
+		else {
+			if ()
+		}
 	}
 
 	public int ETD(Event e) {
