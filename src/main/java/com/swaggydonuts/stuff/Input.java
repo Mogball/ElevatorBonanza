@@ -1,5 +1,6 @@
 package com.swaggydonuts.stuff;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,6 +15,25 @@ public class Input {
 	@SuppressWarnings("unchecked")
 	public Input() {
 		events = (List<Event>[]) new List[1000];
+		for (int i = 0; i < events.length; i++) {
+			events[i] = new ArrayList<>();
+		}
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Floors: ").append(floors).append('\n');
+		sb.append("Elevators: ").append(elevators).append('\n');
+		sb.append("Events: [").append('\n');
+		for (List<Event> list : events) {
+			if (list.isEmpty()) continue;
+			sb.append('\t').append(list.get(0).time).append(": ");
+			for (Event e : list) sb.append('(').append(e.start).append(", ").append(e.end).append(')').append(',');
+			sb.append('\n');
+		}
+		sb.append(']');
+		return sb.toString();
 	}
 
 }
