@@ -1,4 +1,4 @@
-package com.swaggydonuts.stuff;
+package com.swaggydonuts;
 
 import javax.json.*;
 import java.io.IOException;

@@ -35,6 +35,7 @@ public class Main {
 		exampleLabel.setLayout(null);
 
 		//Elevators begin
+<<<<<<< HEAD
 		ImageIcon UpLit = new ImageIcon(Main.class.getResource("UpLit.png"), "UpLit");
 		ImageIcon LitDown = new ImageIcon(Main.class.getResource("LitDown.png"), "LitDown");
 		ImageIcon StaticIcon = new ImageIcon(Main.class.getResource("static.png"), "Static");
@@ -42,6 +43,9 @@ public class Main {
 		String GoingUp = new String("Going Up");
 
 		JLabel E1 = new JLabel("0");
+=======
+		JLabel E1 = new JLabel("0", SwingConstants.CENTER);
+>>>>>>> a40f1616555695616c514cc72595d4a3e66f4678
 		E1.setBorder(BorderFactory.createLineBorder(Color.black));
 		E1.setLocation(10, 100);
 		E1.setSize(new Dimension(50, 100));
@@ -181,5 +185,23 @@ public class Main {
 		frame.pack();
 		frame.setVisible(true);
 
+<<<<<<< HEAD
+=======
+		InputStream is = Main.class.getResourceAsStream("elevator_practice1.json");
+		try {
+			Input input = Parser.parseInput(is);
+			Controller controller = new Controller(input.floors, input.elevators);
+			for (int i = 0; i < Constant.ITERATIONS; i++) {
+				Cheat.i = i;
+				List<Event> events = input.events[i];
+				for (Event event : events) controller.send(event);
+				controller.update();
+			}
+			print(controller);
+			print(Cheat.totalTime);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+>>>>>>> a40f1616555695616c514cc72595d4a3e66f4678
 	}
 }

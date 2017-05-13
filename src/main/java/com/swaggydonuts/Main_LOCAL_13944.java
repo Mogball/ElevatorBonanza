@@ -1,9 +1,10 @@
 package com.swaggydonuts;
 
+import com.swaggydonuts.stuff.Input;
+import com.swaggydonuts.stuff.Parser;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.List;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -14,7 +15,6 @@ public class Main {
 	}
 
 	public static void main(String[] args) {
-
 		JFrame frame = new JFrame("Elevator Bonanza");
 		JPanel content = (JPanel) frame.getContentPane();
 		content.setLayout(null);
@@ -53,7 +53,7 @@ public class Main {
 
 		GoingUp = "Going Down";
 
-		JLabel E2 = new JLabel("0", SwingConstants.CENTER);
+		JLabel E2 = new JLabel("0",SwingConstants.CENTER);
 		E2.setBorder(BorderFactory.createLineBorder(Color.black));
 		E2.setLocation(70, 100);
 		E2.setSize(new Dimension(50, 100));
@@ -63,7 +63,7 @@ public class Main {
 		E2.setVerticalTextPosition(SwingConstants.BOTTOM);
 		E2.setHorizontalTextPosition(SwingConstants.CENTER);
 
-		JLabel E3 = new JLabel("0", SwingConstants.CENTER);
+		JLabel E3 = new JLabel("0",SwingConstants.CENTER);
 		E3.setBorder(BorderFactory.createLineBorder(Color.black));
 		E3.setLocation(130, 100);
 		E3.setSize(new Dimension(50, 100));
@@ -73,7 +73,7 @@ public class Main {
 		E3.setVerticalTextPosition(SwingConstants.BOTTOM);
 		E3.setHorizontalTextPosition(SwingConstants.CENTER);
 
-		JLabel E4 = new JLabel("0", SwingConstants.CENTER);
+		JLabel E4 = new JLabel("0",SwingConstants.CENTER);
 		E4.setBorder(BorderFactory.createLineBorder(Color.black));
 		E4.setLocation(190, 100);
 		E4.setSize(new Dimension(50, 100));
@@ -83,7 +83,7 @@ public class Main {
 		E4.setVerticalTextPosition(SwingConstants.BOTTOM);
 		E4.setHorizontalTextPosition(SwingConstants.CENTER);
 
-		JLabel E5 = new JLabel("0", SwingConstants.CENTER);
+		JLabel E5 = new JLabel("0",SwingConstants.CENTER);
 		E5.setBorder(BorderFactory.createLineBorder(Color.black));
 		E5.setLocation(250, 100);
 		E5.setSize(new Dimension(50, 100));
@@ -93,7 +93,7 @@ public class Main {
 		E5.setVerticalTextPosition(SwingConstants.BOTTOM);
 		E5.setHorizontalTextPosition(SwingConstants.CENTER);
 
-		JLabel E6 = new JLabel("0", SwingConstants.CENTER);
+		JLabel E6 = new JLabel("0",SwingConstants.CENTER);
 		E6.setBorder(BorderFactory.createLineBorder(Color.black));
 		E6.setLocation(10, 260);
 		E6.setSize(new Dimension(50, 100));
@@ -103,7 +103,7 @@ public class Main {
 		E6.setVerticalTextPosition(SwingConstants.BOTTOM);
 		E6.setHorizontalTextPosition(SwingConstants.CENTER);
 
-		JLabel E7 = new JLabel("0", SwingConstants.CENTER);
+		JLabel E7 = new JLabel("0",SwingConstants.CENTER);
 		E7.setBorder(BorderFactory.createLineBorder(Color.black));
 		E7.setLocation(70, 260);
 		E7.setSize(new Dimension(50, 100));
@@ -113,7 +113,7 @@ public class Main {
 		E7.setVerticalTextPosition(SwingConstants.BOTTOM);
 		E7.setHorizontalTextPosition(SwingConstants.CENTER);
 
-		JLabel E8 = new JLabel("0", SwingConstants.CENTER);
+		JLabel E8 = new JLabel("0",SwingConstants.CENTER);
 		E8.setBorder(BorderFactory.createLineBorder(Color.black));
 		E8.setLocation(130, 260);
 		E8.setSize(new Dimension(50, 100));
@@ -123,7 +123,7 @@ public class Main {
 		E8.setVerticalTextPosition(SwingConstants.BOTTOM);
 		E8.setHorizontalTextPosition(SwingConstants.CENTER);
 
-		JLabel E9 = new JLabel("0", SwingConstants.CENTER);
+		JLabel E9 = new JLabel("0",SwingConstants.CENTER);
 		E9.setBorder(BorderFactory.createLineBorder(Color.black));
 		E9.setLocation(190, 260);
 		E9.setSize(new Dimension(50, 100));
@@ -133,7 +133,7 @@ public class Main {
 		E9.setVerticalTextPosition(SwingConstants.BOTTOM);
 		E9.setHorizontalTextPosition(SwingConstants.CENTER);
 
-		JLabel E10 = new JLabel("0", SwingConstants.CENTER);
+		JLabel E10 = new JLabel("0",SwingConstants.CENTER);
 		E10.setBorder(BorderFactory.createLineBorder(Color.black));
 		E10.setLocation(250, 260);
 		E10.setSize(new Dimension(50, 100));
@@ -143,7 +143,7 @@ public class Main {
 		E10.setVerticalTextPosition(SwingConstants.BOTTOM);
 		E10.setHorizontalTextPosition(SwingConstants.CENTER);
 		//Elevators end
-		JTextArea textArea = new JTextArea(5, 30);
+		JTextArea textArea = new JTextArea(5, 30	);
 		textArea.setText("HEllo");
 		/*
 		textArea.setSize(200, 600);
@@ -155,7 +155,7 @@ public class Main {
 
 		JScrollPane floors = new JScrollPane(p);
 
-		floors.setLocation(600, 0);
+		floors.setLocation( 600, 0);
 		floors.setSize(200, 400);
 
 		floors.setLayout(null);
