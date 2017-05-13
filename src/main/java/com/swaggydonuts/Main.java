@@ -147,15 +147,17 @@ public class Main {
 		try {
 			Input input = Parser.parseInput(is);
 			Controller controller = new Controller(input.floors, input.elevators);
-			for (int i = 0; i < Constant.ITERATIONS; i++) {
+			int i;
+			for (i = 0; i < Constant.ITERATIONS; i++) {
 				Cheat.i = i;
 				List<Event> events = input.events[i];
 				for (Event event : events) controller.send(event);
 				controller.update();
 			}
-			for (int i = 1000; i < 2000; i++) {
-				Cheat.i = i;
+			while (controller.peopleRemaining() != 0) {
 				controller.update();
+				i++;
+				Cheat.i = i;
 			}
 			print(controller);
 			print(Cheat.totalTime);

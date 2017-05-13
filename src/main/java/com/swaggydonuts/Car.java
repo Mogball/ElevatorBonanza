@@ -252,4 +252,8 @@ public class Car {
 				"Waiting: " + events.size() + '\n';
 	}
 
+	public int peopleRemaining() {
+		return people.size() + events.size();
+	}
+
 }
