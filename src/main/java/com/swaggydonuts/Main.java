@@ -6,6 +6,8 @@ import java.awt.*;
 import java.util.List;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.TimerTask;
+import java.util.Timer;
 
 public class Main {
 
@@ -47,7 +49,7 @@ public class Main {
 		E1.setSize(new Dimension(50, 100));
 		E1.setFont(new Font("Arial", Font.BOLD, 24));
 		E1.setLayout(null);
-		E1.setIcon(StaticIcon);
+		E1.setIcon(UpLit);
 		E1.setVerticalTextPosition(SwingConstants.BOTTOM);
 		E1.setHorizontalTextPosition(SwingConstants.CENTER);
 
@@ -59,7 +61,7 @@ public class Main {
 		E2.setSize(new Dimension(50, 100));
 		E2.setFont(new Font("Arial", Font.BOLD, 24));
 		E2.setLayout(null);
-		E2.setIcon(StaticIcon);
+		E2.setIcon(LitDown);
 		E2.setVerticalTextPosition(SwingConstants.BOTTOM);
 		E2.setHorizontalTextPosition(SwingConstants.CENTER);
 
@@ -150,6 +152,18 @@ public class Main {
 		textArea.setLocation( 600, 0);
 		*/
 
+		JLabel PeopleInTransit = new JLabel("People in transit: 0");
+		PeopleInTransit.setBorder(BorderFactory.createLineBorder(Color.black));
+		PeopleInTransit.setLocation(400,100);
+		PeopleInTransit.setSize(200,50);
+		PeopleInTransit.setLayout(null);
+
+		JLabel FloorsWithPeople = new JLabel("Floors with people: None");
+		FloorsWithPeople.setBorder(BorderFactory.createLineBorder(Color.black));
+		FloorsWithPeople.setLocation(400,150);
+		FloorsWithPeople.setSize(200,50);
+		FloorsWithPeople.setLayout(null);
+
 		JPanel p = new JPanel();
 		p.setSize(600, 400);
 
@@ -160,12 +174,28 @@ public class Main {
 
 		floors.setLayout(null);
 
+		JLabel label = new JLabel();
+		label.setLocation(0, 500);
+		label.setSize(400, 50);
+		label.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 22));
+		label.setLayout(null);
+		content.add(label);
+		//Event loop
+		Timer timer = new Timer();
+		timer.scheduleAtFixedRate(new TimerTask() {
+			int count=0;
+			public void
+			run() {
+				label.setText("Time elapsed: "+count + " seconds");
+				//content.remove(label);
+				//content.add(label);
+				count++;
+				System.out.println(count);
+			}
+		}, 0, 1000);
+
 		exampleButton.addActionListener(e -> exampleLabel.setText("You suck"));
 
-		content.add(exampleButton);
-		content.add(exampleLabel);
-		content.add(floors);
-		content.add(textArea);
 		content.add(E1);
 		content.add(E2);
 		content.add(E3);
@@ -176,6 +206,8 @@ public class Main {
 		content.add(E8);
 		content.add(E9);
 		content.add(E10);
+		content.add(PeopleInTransit);
+		content.add(FloorsWithPeople);
 
 
 		frame.pack();
