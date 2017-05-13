@@ -260,6 +260,8 @@ public class Main extends JFrame {
 			InputStream is = Main.class.getResourceAsStream("elevator_practice3.json");
 			try {
 				Input input = Parser.parseInput(is);
+
+
 				Controller controller = new Controller(input.floors, input.elevators, main);
 				int i;
 				List<OutputElement> outputs = new ArrayList<>();
