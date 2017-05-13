@@ -160,7 +160,7 @@ public class Car {
 	}
 
 	public void update() {
-		System.err.printf("%d @ %d%n", floor, Cheat.i + 1);
+		//System.err.printf("%d @ %d%n", floor, Cheat.i + 1);
 		for (Person p : people) {
 			p.time++;
 		}
@@ -188,8 +188,6 @@ public class Car {
 			if (people.isEmpty() && events.isEmpty()) {
 				moveState = -1;
 				state = 0;
-			} else if (events.isEmpty()) {
-
 			} else {
 				moveState = 0;
 			}
