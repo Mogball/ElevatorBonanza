@@ -28,9 +28,20 @@ public class Controller {
 	}
 
 	public void update() {
+		for (Car car : cars) {
+			if (car.people.size() > 5) {
+				System.err.println("BADBADBAD");
+			}
+		}
+
+
+		List<Person> updateStc = new ArrayList<>();
 		for (Floor floor : floors) {
-			List<Person> rm = new ArrayList<>();
-			for (Person p : floor.people) {
+			updateStc.addAll(floor.people);
+		}
+		updateStc.sort((p1, p2) -> p2.time - p1.time);
+		List<Person> rm = new ArrayList<>();
+		for (Person p : updateStc) {
 				List<Car> valid = new ArrayList<>();
 				for (Car car : cars) {
 					if (car.isValid(p)) valid.add(car);
@@ -40,9 +51,9 @@ public class Controller {
 					continue;
 				}
 				int min = 0;
-				int minTC = valid.get(min).TC(p);
+				int minTC = valid.get(min).totalHeuristic(p);
 				for (int i = 1; i < valid.size(); i++) {
-					int TC = valid.get(i).TC(p);
+					int TC = valid.get(i).totalHeuristic(p);
 					if (TC < minTC) {
 						min = i;
 						minTC = TC;
@@ -50,7 +61,9 @@ public class Controller {
 				}
 				valid.get(min).addEvent(p);
 				rm.add(p);
-			}
+		}
+
+		for (Floor floor : floors) {
 			floor.people.removeAll(rm);
 		}
 		for (Car car : cars) {
@@ -84,5 +97,13 @@ public class Controller {
 		for (Car car : cars) people += car.peopleRemaining();
 		return people;
 	}
+
+}
+
+class ScheduleTC {
+
+	Person p;
+	int tc;
+	int car;
 
 }

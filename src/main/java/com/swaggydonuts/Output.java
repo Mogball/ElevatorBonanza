@@ -32,6 +32,7 @@ public class Output {
 			writer.println(write);
 			writer.flush();
 		}
+		writer.print(Cheat.totalTime);
 		writer.close();
 	}
 
