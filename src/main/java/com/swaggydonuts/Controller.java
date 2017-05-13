@@ -1,6 +1,8 @@
 package com.swaggydonuts;
 
+import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -10,8 +12,10 @@ public class Controller {
 
 	public Car[] cars;
 	public Floor[] floors;
+	public Main main;
 
-	public Controller(int floors, int elevators) {
+	public Controller(int floors, int elevators, Main main) {
+		this.main = main;
 		this.cars = new Car[elevators];
 		this.floors = new Floor[floors];
 		for (int i = 0; i < floors; i++) {
@@ -42,25 +46,25 @@ public class Controller {
 		updateStc.sort((p1, p2) -> p2.time - p1.time);
 		List<Person> rm = new ArrayList<>();
 		for (Person p : updateStc) {
-				List<Car> valid = new ArrayList<>();
-				for (Car car : cars) {
-					if (car.isValid(p)) valid.add(car);
+			List<Car> valid = new ArrayList<>();
+			for (Car car : cars) {
+				if (car.isValid(p)) valid.add(car);
+			}
+			if (valid.isEmpty()) {
+				p.time++;
+				continue;
+			}
+			int min = 0;
+			int minTC = valid.get(min).totalHeuristic(p);
+			for (int i = 1; i < valid.size(); i++) {
+				int TC = valid.get(i).totalHeuristic(p);
+				if (TC < minTC) {
+					min = i;
+					minTC = TC;
 				}
-				if (valid.isEmpty()) {
-					p.time++;
-					continue;
-				}
-				int min = 0;
-				int minTC = valid.get(min).totalHeuristic(p);
-				for (int i = 1; i < valid.size(); i++) {
-					int TC = valid.get(i).totalHeuristic(p);
-					if (TC < minTC) {
-						min = i;
-						minTC = TC;
-					}
-				}
-				valid.get(min).addEvent(p);
-				rm.add(p);
+			}
+			valid.get(min).addEvent(p);
+			rm.add(p);
 		}
 
 		for (Floor floor : floors) {
@@ -71,6 +75,7 @@ public class Controller {
 		}
 		updateGUI();
 	}
+
 
 	@Override
 	public String toString() {
@@ -88,7 +93,34 @@ public class Controller {
 	}
 
 	public void updateGUI() {
+		int people = 0;
+		int i = 0;
+		List<Integer> floorNums = new ArrayList<>();
+		for (Car car : cars) people += car.people.size();
+		for (i = 0; i < floors.length; i++) if (floors[i].people.size() > 0) floorNums.add(i);
+		main.PeopleInTransit.setText("People in transit: " + people);
+		StringBuilder sb = new StringBuilder();
+		main.FloorsWithPeople.setText("Floors with people: " + floorNums.toString());
 
+		List<JLabel> Elevators = Arrays.asList(main.E1, main.E2, main.E3, main.E4, main.E5, main.E6, main.E7, main.E8,
+				main.E9, main.E10);
+		i = 0;
+		for (Car car : cars) {
+			Elevators.get(i).setText(car.floor + "");
+			i += 1;
+		}
+		i = 0;
+		main.label.setText("Time elapsed: " + Cheat.i + " seconds");
+		for (Car car : cars) {
+			if (car.state == 0 || car.moveState == 1) {
+				Elevators.get(i).setIcon(main.StaticIcon);
+			} else if (car.state == -1) {
+				Elevators.get(i).setIcon(main.LitDown);
+			} else {
+				Elevators.get(i).setIcon(main.UpLit);
+			}
+			i++;
+		}
 	}
 
 	public int peopleRemaining() {

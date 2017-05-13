@@ -1,0 +1,256 @@
+{
+    "floors": 10,
+    "elevators": 1,
+    "events": [
+        {
+            "time": 4,
+            "start": 0,
+            "end": 9
+        },
+        {
+            "time": 35,
+            "start": 0,
+            "end": 2
+        },
+        {
+            "time": 57,
+            "start": 1,
+            "end": 4
+        },
+        {
+            "time": 71,
+            "start": 5,
+            "end": 6
+        },
+        {
+            "time": 92,
+            "start": 6,
+            "end": 9
+        },
+        {
+            "time": 110,
+            "start": 1,
+            "end": 5
+        },
+        {
+            "time": 126,
+            "start": 3,
+            "end": 7
+        },
+        {
+            "time": 154,
+            "start": 6,
+            "end": 9
+        },
+        {
+            "time": 167,
+            "start": 3,
+            "end": 9
+        },
+        {
+            "time": 199,
+            "start": 2,
+            "end": 6
+        },
+        {
+            "time": 218,
+            "start": 4,
+            "end": 6
+        },
+        {
+            "time": 234,
+            "start": 3,
+            "end": 7
+        },
+        {
+            "time": 253,
+            "start": 1,
+            "end": 7
+        },
+        {
+            "time": 275,
+            "start": 0,
+            "end": 8
+        },
+        {
+            "time": 298,
+            "start": 2,
+            "end": 8
+        },
+        {
+            "time": 309,
+            "start": 4,
+            "end": 7
+        },
+        {
+            "time": 320,
+            "start": 9,
+            "end": 6
+        },
+        {
+            "time": 341,
+            "start": 6,
+            "end": 8
+        },
+        {
+            "time": 373,
+            "start": 2,
+            "end": 4
+        },
+        {
+            "time": 385,
+            "start": 4,
+            "end": 9
+        },
+        {
+            "time": 408,
+            "start": 1,
+            "end": 9
+        },
+        {
+            "time": 435,
+            "start": 6,
+            "end": 0
+        },
+        {
+            "time": 448,
+            "start": 9,
+            "end": 7
+        },
+        {
+            "time": 475,
+            "start": 4,
+            "end": 8
+        },
+        {
+            "time": 492,
+            "start": 5,
+            "end": 2
+        },
+        {
+            "time": 503,
+            "start": 5,
+            "end": 3
+        },
+        {
+            "time": 526,
+            "start": 8,
+            "end": 2
+        },
+        {
+            "time": 545,
+            "start": 7,
+            "end": 0
+        },
+        {
+            "time": 563,
+            "start": 6,
+            "end": 8
+        },
+        {
+            "time": 587,
+            "start": 1,
+            "end": 4
+        },
+        {
+            "time": 606,
+            "start": 7,
+            "end": 2
+        },
+        {
+            "time": 637,
+            "start": 7,
+            "end": 0
+        },
+        {
+            "time": 648,
+            "start": 7,
+            "end": 3
+        },
+        {
+            "time": 675,
+            "start": 5,
+            "end": 2
+        },
+        {
+            "time": 690,
+            "start": 8,
+            "end": 2
+        },
+        {
+            "time": 712,
+            "start": 3,
+            "end": 5
+        },
+        {
+            "time": 730,
+            "start": 9,
+            "end": 7
+        },
+        {
+            "time": 746,
+            "start": 6,
+            "end": 5
+        },
+        {
+            "time": 777,
+            "start": 8,
+            "end": 2
+        },
+        {
+            "time": 781,
+            "start": 8,
+            "end": 5
+        },
+        {
+            "time": 807,
+            "start": 9,
+            "end": 6
+        },
+        {
+            "time": 827,
+            "start": 5,
+            "end": 3
+        },
+        {
+            "time": 853,
+            "start": 3,
+            "end": 6
+        },
+        {
+            "time": 862,
+            "start": 8,
+            "end": 3
+        },
+        {
+            "time": 886,
+            "start": 5,
+            "end": 2
+        },
+        {
+            "time": 914,
+            "start": 9,
+            "end": 2
+        },
+        {
+            "time": 927,
+            "start": 9,
+            "end": 8
+        },
+        {
+            "time": 940,
+            "start": 5,
+            "end": 2
+        },
+        {
+            "time": 965,
+            "start": 6,
+            "end": 5
+        },
+        {
+            "time": 983,
+            "start": 8,
+            "end": 3
+        }
+    ]
+}

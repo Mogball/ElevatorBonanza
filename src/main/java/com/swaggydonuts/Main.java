@@ -7,23 +7,41 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.TimerTask;
+import java.util.Timer;
 
-public class Main {
+public class Main extends JFrame {
 
-	public static void print(Object o) {
-		System.out.println(o);
-	}
+	JPanel content;
+	JButton exampleButton;
+	ImageIcon UpLit;
+	ImageIcon LitDown;
+	ImageIcon StaticIcon;
+	JLabel E1;
+	JLabel E2;
+	JLabel E3;
+	JLabel E4;
+	JLabel E5;
+	JLabel E6;
+	JLabel E7;
+	JLabel E8;
+	JLabel E9;
+	JLabel E10;
+	JLabel PeopleInTransit;
+	JLabel FloorsWithPeople;
 
-	public static void main(String[] args) {
+	JLabel label;
 
-		JFrame frame = new JFrame("Elevator Bonanza");
-		JPanel content = (JPanel) frame.getContentPane();
+	public Main() {
+		super("Elevator Bonanza");
+
+		content = (JPanel) getContentPane();
 		content.setLayout(null);
-		frame.setResizable(true);
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		frame.setPreferredSize(new Dimension(1000, 600));
+		setResizable(true);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		setPreferredSize(new Dimension(1000, 600));
 
-		JButton exampleButton = new JButton("Stats");
+		exampleButton = new JButton("Stats");
 		exampleButton.setLocation(0, 400);
 		exampleButton.setSize(100, 50);
 		exampleButton.setLayout(null);
@@ -36,35 +54,35 @@ public class Main {
 		exampleLabel.setLayout(null);
 
 		//Elevators begin
-		ImageIcon UpLit = new ImageIcon(Main.class.getResource("UpLit.png"), "UpLit");
-		ImageIcon LitDown = new ImageIcon(Main.class.getResource("LitDown.png"), "LitDown");
-		ImageIcon StaticIcon = new ImageIcon(Main.class.getResource("static.png"), "Static");
+		UpLit = new ImageIcon(Main.class.getResource("UpLit.png"), "UpLit");
+		LitDown = new ImageIcon(Main.class.getResource("LitDown.png"), "LitDown");
+		StaticIcon = new ImageIcon(Main.class.getResource("static.png"), "Static");
 
 		String GoingUp = new String("Going Up");
 
-		JLabel E1 = new JLabel("0");
+		E1 = new JLabel("0");
 		E1.setBorder(BorderFactory.createLineBorder(Color.black));
 		E1.setLocation(10, 100);
 		E1.setSize(new Dimension(50, 100));
 		E1.setFont(new Font("Arial", Font.BOLD, 24));
 		E1.setLayout(null);
-		E1.setIcon(StaticIcon);
+		E1.setIcon(UpLit);
 		E1.setVerticalTextPosition(SwingConstants.BOTTOM);
 		E1.setHorizontalTextPosition(SwingConstants.CENTER);
 
 		GoingUp = "Going Down";
 
-		JLabel E2 = new JLabel("0", SwingConstants.CENTER);
+		E2 = new JLabel("0", SwingConstants.CENTER);
 		E2.setBorder(BorderFactory.createLineBorder(Color.black));
 		E2.setLocation(70, 100);
 		E2.setSize(new Dimension(50, 100));
 		E2.setFont(new Font("Arial", Font.BOLD, 24));
 		E2.setLayout(null);
-		E2.setIcon(StaticIcon);
+		E2.setIcon(LitDown);
 		E2.setVerticalTextPosition(SwingConstants.BOTTOM);
 		E2.setHorizontalTextPosition(SwingConstants.CENTER);
 
-		JLabel E3 = new JLabel("0", SwingConstants.CENTER);
+		E3 = new JLabel("0", SwingConstants.CENTER);
 		E3.setBorder(BorderFactory.createLineBorder(Color.black));
 		E3.setLocation(130, 100);
 		E3.setSize(new Dimension(50, 100));
@@ -74,7 +92,7 @@ public class Main {
 		E3.setVerticalTextPosition(SwingConstants.BOTTOM);
 		E3.setHorizontalTextPosition(SwingConstants.CENTER);
 
-		JLabel E4 = new JLabel("0", SwingConstants.CENTER);
+		E4 = new JLabel("0", SwingConstants.CENTER);
 		E4.setBorder(BorderFactory.createLineBorder(Color.black));
 		E4.setLocation(190, 100);
 		E4.setSize(new Dimension(50, 100));
@@ -84,7 +102,7 @@ public class Main {
 		E4.setVerticalTextPosition(SwingConstants.BOTTOM);
 		E4.setHorizontalTextPosition(SwingConstants.CENTER);
 
-		JLabel E5 = new JLabel("0", SwingConstants.CENTER);
+		E5 = new JLabel("0", SwingConstants.CENTER);
 		E5.setBorder(BorderFactory.createLineBorder(Color.black));
 		E5.setLocation(250, 100);
 		E5.setSize(new Dimension(50, 100));
@@ -94,7 +112,7 @@ public class Main {
 		E5.setVerticalTextPosition(SwingConstants.BOTTOM);
 		E5.setHorizontalTextPosition(SwingConstants.CENTER);
 
-		JLabel E6 = new JLabel("0", SwingConstants.CENTER);
+		E6 = new JLabel("0", SwingConstants.CENTER);
 		E6.setBorder(BorderFactory.createLineBorder(Color.black));
 		E6.setLocation(10, 260);
 		E6.setSize(new Dimension(50, 100));
@@ -104,7 +122,7 @@ public class Main {
 		E6.setVerticalTextPosition(SwingConstants.BOTTOM);
 		E6.setHorizontalTextPosition(SwingConstants.CENTER);
 
-		JLabel E7 = new JLabel("0", SwingConstants.CENTER);
+		E7 = new JLabel("0", SwingConstants.CENTER);
 		E7.setBorder(BorderFactory.createLineBorder(Color.black));
 		E7.setLocation(70, 260);
 		E7.setSize(new Dimension(50, 100));
@@ -114,7 +132,7 @@ public class Main {
 		E7.setVerticalTextPosition(SwingConstants.BOTTOM);
 		E7.setHorizontalTextPosition(SwingConstants.CENTER);
 
-		JLabel E8 = new JLabel("0", SwingConstants.CENTER);
+		E8 = new JLabel("0", SwingConstants.CENTER);
 		E8.setBorder(BorderFactory.createLineBorder(Color.black));
 		E8.setLocation(130, 260);
 		E8.setSize(new Dimension(50, 100));
@@ -124,7 +142,7 @@ public class Main {
 		E8.setVerticalTextPosition(SwingConstants.BOTTOM);
 		E8.setHorizontalTextPosition(SwingConstants.CENTER);
 
-		JLabel E9 = new JLabel("0", SwingConstants.CENTER);
+		E9 = new JLabel("0", SwingConstants.CENTER);
 		E9.setBorder(BorderFactory.createLineBorder(Color.black));
 		E9.setLocation(190, 260);
 		E9.setSize(new Dimension(50, 100));
@@ -134,7 +152,7 @@ public class Main {
 		E9.setVerticalTextPosition(SwingConstants.BOTTOM);
 		E9.setHorizontalTextPosition(SwingConstants.CENTER);
 
-		JLabel E10 = new JLabel("0", SwingConstants.CENTER);
+		E10 = new JLabel("0", SwingConstants.CENTER);
 		E10.setBorder(BorderFactory.createLineBorder(Color.black));
 		E10.setLocation(250, 260);
 		E10.setSize(new Dimension(50, 100));
@@ -151,6 +169,18 @@ public class Main {
 		textArea.setLocation( 600, 0);
 		*/
 
+		PeopleInTransit = new JLabel("People in transit: 0");
+		PeopleInTransit.setBorder(BorderFactory.createLineBorder(Color.black));
+		PeopleInTransit.setLocation(400, 100);
+		PeopleInTransit.setSize(200, 50);
+		PeopleInTransit.setLayout(null);
+
+		FloorsWithPeople = new JLabel("Floors with people: None");
+		FloorsWithPeople.setBorder(BorderFactory.createLineBorder(Color.black));
+		FloorsWithPeople.setLocation(400, 150);
+		FloorsWithPeople.setSize(200, 50);
+		FloorsWithPeople.setLayout(null);
+
 		JPanel p = new JPanel();
 		p.setSize(600, 400);
 
@@ -161,12 +191,16 @@ public class Main {
 
 		floors.setLayout(null);
 
+		label = new JLabel();
+		label.setLocation(0, 500);
+		label.setSize(400, 50);
+		label.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 22));
+		label.setLayout(null);
+		content.add(label);
+		//Event loop
+
 		exampleButton.addActionListener(e -> exampleLabel.setText("You suck"));
 
-		content.add(exampleButton);
-		content.add(exampleLabel);
-		content.add(floors);
-		content.add(textArea);
 		content.add(E1);
 		content.add(E2);
 		content.add(E3);
@@ -177,37 +211,92 @@ public class Main {
 		content.add(E8);
 		content.add(E9);
 		content.add(E10);
+		content.add(PeopleInTransit);
+		content.add(FloorsWithPeople);
 
+		pack();
+		setVisible(true);
 
-		frame.pack();
-		frame.setVisible(true);
+	}
 
-		InputStream is = Main.class.getResourceAsStream("elevator_practice3.json");
-		try {
-			Input input = Parser.parseInput(is);
-			Controller controller = new Controller(input.floors, input.elevators);
-			int i;
-			List<OutputElement> outputs = new ArrayList<>();
-			for (i = 0; i < Constant.ITERATIONS; i++) {
+	public static void print(Object o) {
+		System.out.println(o);
+	}
+
+	public static void main(String[] args) {
+		boolean demo = true;
+		if (!demo) {
+
+			Main main = new Main();
+			InputStream is = Main.class.getResourceAsStream("elevator3.json");
+			try {
+				Input input = Parser.parseInput(is);
+				Controller controller = new Controller(input.floors, input.elevators, main);
+				int i;
+				List<OutputElement> outputs = new ArrayList<>();
+				for (i = 0; i < Constant.ITERATIONS; i++) {
+					outputs.add(new OutputElement(i, controller));
+					Cheat.i = i;
+					List<Event> events = input.events[i];
+					for (Event event : events) controller.send(event);
+					controller.update();
+				}
+				while (controller.peopleRemaining() != 0) {
+					outputs.add(new OutputElement(i, controller));
+					controller.update();
+					i++;
+					Cheat.i = i;
+				}
 				outputs.add(new OutputElement(i, controller));
-				Cheat.i = i;
-				List<Event> events = input.events[i];
-				for (Event event : events) controller.send(event);
-				controller.update();
+				Output.writeOutput(outputs, "output3.txt");
+				print(controller);
+				print(Cheat.totalTime);
+				print(Cheat.people);
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
-			while (controller.peopleRemaining() != 0) {
-				outputs.add(new OutputElement(i, controller));
-				controller.update();
-				i++;
-				Cheat.i = i;
+		} else {
+			Main main = new Main();
+			InputStream is = Main.class.getResourceAsStream("elevator_practice3.json");
+			try {
+				Input input = Parser.parseInput(is);
+				Controller controller = new Controller(input.floors, input.elevators, main);
+				int i;
+				List<OutputElement> outputs = new ArrayList<>();
+
+				Timer timer = new Timer();
+				timer.schedule(new TimerTask() {
+					int i = 0;
+
+					@Override
+					public void run() {
+						outputs.add(new OutputElement(i, controller));
+						if (i < 1000) {
+							List<Event> events = input.events[i];
+							for (Event event : events) controller.send(event);
+						}
+						controller.update();
+						i++;
+						Cheat.i = i;
+
+						if (i > 1000 && controller.peopleRemaining() == 0) {
+							outputs.add(new OutputElement(i, controller));
+							try {
+								Output.writeOutput(outputs, "output.txt");
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+							print(controller);
+							print(Cheat.totalTime);
+							print(Cheat.people);
+
+							cancel();
+						}
+					}
+				}, 0, 100);
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
-			outputs.add(new OutputElement(i, controller));
-			Output.writeOutput(outputs, "output.txt");
-			print(controller);
-			print(Cheat.totalTime);
-			print(Cheat.people);
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
 	}
 }
