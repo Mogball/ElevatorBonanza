@@ -1,4 +1,4 @@
-package com.swaggydonuts.stuff;
+package com.swaggydonuts;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,7 @@ public class Input {
 
 	@SuppressWarnings("unchecked")
 	public Input() {
-		events = (List<Event>[]) new List[1000];
+		events = (List<Event>[]) new List[Constant.ITERATIONS];
 		for (int i = 0; i < events.length; i++) {
 			events[i] = new ArrayList<>();
 		}
