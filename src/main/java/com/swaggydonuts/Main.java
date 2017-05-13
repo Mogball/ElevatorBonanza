@@ -178,7 +178,7 @@ public class Main extends JFrame {
 		FloorsWithPeople = new JLabel("Floors with people: None");
 		FloorsWithPeople.setBorder(BorderFactory.createLineBorder(Color.black));
 		FloorsWithPeople.setLocation(400, 150);
-		FloorsWithPeople.setSize(200, 50);
+		FloorsWithPeople.setSize(400, 50);
 		FloorsWithPeople.setLayout(null);
 
 		JPanel p = new JPanel();
@@ -293,7 +293,7 @@ public class Main extends JFrame {
 							cancel();
 						}
 					}
-				}, 0, 100);
+				}, 0, 25);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
