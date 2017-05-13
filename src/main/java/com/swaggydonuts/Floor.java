@@ -1,4 +1,4 @@
-package com.swaggydonuts.stuff;
+package com.swaggydonuts;
 
 import java.util.ArrayList;
 import java.util.List;
