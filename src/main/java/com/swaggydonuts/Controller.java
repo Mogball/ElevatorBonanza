@@ -78,4 +78,11 @@ public class Controller {
 
 	}
 
+	public int peopleRemaining() {
+		int people = 0;
+		for (Floor floor : floors) people += floor.people.size();
+		for (Car car : cars) people += car.peopleRemaining();
+		return people;
+	}
+
 }

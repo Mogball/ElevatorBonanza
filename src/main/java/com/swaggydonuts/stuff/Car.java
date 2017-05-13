@@ -8,7 +8,7 @@ import java.util.List;
  *
  * This class describes an elevator car.
  */
-/*
+
 public class Car {
 
 	// The current floor the car is at
@@ -43,5 +43,3 @@ public class Car {
 	}
 
 }
-*/
-/*asas*/
