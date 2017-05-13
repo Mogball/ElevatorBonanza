@@ -143,7 +143,7 @@ public class Main {
 		frame.pack();
 		frame.setVisible(true);
 
-		InputStream is = Main.class.getResourceAsStream("elevator_practice1.json");
+		InputStream is = Main.class.getResourceAsStream("elevator_practice3.json");
 		try {
 			Input input = Parser.parseInput(is);
 			Controller controller = new Controller(input.floors, input.elevators);
@@ -153,8 +153,13 @@ public class Main {
 				for (Event event : events) controller.send(event);
 				controller.update();
 			}
+			for (int i = 1000; i < 2000; i++) {
+				Cheat.i = i;
+				controller.update();
+			}
 			print(controller);
 			print(Cheat.totalTime);
+			print(Cheat.people);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

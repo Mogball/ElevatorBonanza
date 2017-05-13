@@ -140,11 +140,16 @@ public class Car {
 	}
 
 	public void unloadPeople() {
+		boolean change = false;
+		if (people.isEmpty() && !events.isEmpty()) {
+			change = true;
+		}
 		List<Person> remove = new ArrayList<>();
 		List<Person> removeEvent = new ArrayList<>();
 		for (Person p : people) {
 			if (p.e.end == floor) {
 				remove.add(p);
+				System.err.printf("Unloaded (%d, %d, %d) : %d @ %d%n", p.e.time, p.e.start, p.e.end, p.time, Cheat.i + 1);
 				p.unloaded();
 			}
 		}
@@ -157,7 +162,17 @@ public class Car {
 		}
 		people.removeAll(remove);
 		events.removeAll(removeEvent);
+		if (!people.isEmpty()) {
+			if (state == 1 && people.get(0).e.end < floor) change = true;
+			if (state == -1 && people.get(0).e.end > floor) change = true;
+		}
+		if (change && events.isEmpty()) {
+			changeOver = people.get(0);
+			System.err.printf("Changeover (%d, %d, %d) @ %d%n", changeOver.e.time, changeOver.e.start, changeOver.e.end, Cheat.i + 1);
+		}
 	}
+
+	Person changeOver = null;
 
 	public void update() {
 		//System.err.printf("%d @ %d%n", floor, Cheat.i + 1);
@@ -188,6 +203,14 @@ public class Car {
 			if (people.isEmpty() && events.isEmpty()) {
 				moveState = -1;
 				state = 0;
+			} else if (changeOver != null) {
+				if (changeOver.e.end > floor) {
+					state = 1;
+				} else {
+					state = -1;
+				}
+				moveState = 0;
+				changeOver = null;
 			} else {
 				moveState = 0;
 			}
@@ -196,7 +219,12 @@ public class Car {
 
 	public void addEvent(Person p) {
 		// isValid(e) == true
-		System.err.printf("Event: (%d, %d, %d) @ %d%n", p.e.time, p.e.start, p.e.end, Cheat.i);
+		System.err.printf("Event: (%d, %d, %d) : (%d, %d, %d) @ %d%n", p.e.time, p.e.start, p.e.end, floor, state, moveState, Cheat.i);
+		if (moveState == 1) {
+			System.err.printf("Loaded (%d, %d, %d) @ %d%n", p.e.time, p.e.start, p.e.end, Cheat.i);
+			people.add(p);
+			return;
+		}
 		events.add(p);
 		if (state == 0) {
 			if (p.e.start < floor) {

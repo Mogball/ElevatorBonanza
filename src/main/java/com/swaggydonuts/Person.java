@@ -19,7 +19,7 @@ public class Person {
 
 	public void unloaded() {
 		Cheat.totalTime += time;
-		System.err.printf("Unloaded (%d, %d, %d) : %d @ %d%n", e.time, e.start, e.end, time, Cheat.i + 1);
+		Cheat.people++;
 	}
 
 	@Override
