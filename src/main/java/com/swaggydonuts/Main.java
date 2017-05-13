@@ -17,6 +17,18 @@ public class Main extends JFrame {
     ImageIcon UpLit;
     ImageIcon LitDown;
     ImageIcon StaticIcon;
+	JLabel E1;
+	JLabel E2;
+	JLabel E3;
+	JLabel E4;
+	JLabel E5;
+	JLabel E6;
+	JLabel E7;
+	JLabel E8;
+	JLabel E9;
+	JLabel E10;
+	JLabel PeopleInTransit;
+	JLabel FloorsWithPeople;
 
     public Main() {
         super("Elevator Bonanza");
@@ -46,7 +58,7 @@ public class Main extends JFrame {
 
         String GoingUp = new String("Going Up");
 
-        JLabel E1 = new JLabel("0");
+		E1 = new JLabel("0");
         E1.setBorder(BorderFactory.createLineBorder(Color.black));
         E1.setLocation(10, 100);
         E1.setSize(new Dimension(50, 100));
@@ -58,7 +70,7 @@ public class Main extends JFrame {
 
         GoingUp = "Going Down";
 
-        JLabel E2 = new JLabel("0", SwingConstants.CENTER);
+		E2 = new JLabel("0", SwingConstants.CENTER);
         E2.setBorder(BorderFactory.createLineBorder(Color.black));
         E2.setLocation(70, 100);
         E2.setSize(new Dimension(50, 100));
@@ -68,7 +80,7 @@ public class Main extends JFrame {
         E2.setVerticalTextPosition(SwingConstants.BOTTOM);
         E2.setHorizontalTextPosition(SwingConstants.CENTER);
 
-        JLabel E3 = new JLabel("0", SwingConstants.CENTER);
+		E3 = new JLabel("0", SwingConstants.CENTER);
         E3.setBorder(BorderFactory.createLineBorder(Color.black));
         E3.setLocation(130, 100);
         E3.setSize(new Dimension(50, 100));
@@ -78,7 +90,7 @@ public class Main extends JFrame {
         E3.setVerticalTextPosition(SwingConstants.BOTTOM);
         E3.setHorizontalTextPosition(SwingConstants.CENTER);
 
-        JLabel E4 = new JLabel("0", SwingConstants.CENTER);
+		E4 = new JLabel("0", SwingConstants.CENTER);
         E4.setBorder(BorderFactory.createLineBorder(Color.black));
         E4.setLocation(190, 100);
         E4.setSize(new Dimension(50, 100));
@@ -88,7 +100,7 @@ public class Main extends JFrame {
         E4.setVerticalTextPosition(SwingConstants.BOTTOM);
         E4.setHorizontalTextPosition(SwingConstants.CENTER);
 
-        JLabel E5 = new JLabel("0", SwingConstants.CENTER);
+		E5 = new JLabel("0", SwingConstants.CENTER);
         E5.setBorder(BorderFactory.createLineBorder(Color.black));
         E5.setLocation(250, 100);
         E5.setSize(new Dimension(50, 100));
@@ -98,7 +110,7 @@ public class Main extends JFrame {
         E5.setVerticalTextPosition(SwingConstants.BOTTOM);
         E5.setHorizontalTextPosition(SwingConstants.CENTER);
 
-        JLabel E6 = new JLabel("0", SwingConstants.CENTER);
+		E6 = new JLabel("0", SwingConstants.CENTER);
         E6.setBorder(BorderFactory.createLineBorder(Color.black));
         E6.setLocation(10, 260);
         E6.setSize(new Dimension(50, 100));
@@ -108,7 +120,7 @@ public class Main extends JFrame {
         E6.setVerticalTextPosition(SwingConstants.BOTTOM);
         E6.setHorizontalTextPosition(SwingConstants.CENTER);
 
-        JLabel E7 = new JLabel("0", SwingConstants.CENTER);
+		E7 = new JLabel("0", SwingConstants.CENTER);
         E7.setBorder(BorderFactory.createLineBorder(Color.black));
         E7.setLocation(70, 260);
         E7.setSize(new Dimension(50, 100));
@@ -118,7 +130,7 @@ public class Main extends JFrame {
         E7.setVerticalTextPosition(SwingConstants.BOTTOM);
         E7.setHorizontalTextPosition(SwingConstants.CENTER);
 
-        JLabel E8 = new JLabel("0", SwingConstants.CENTER);
+		E8 = new JLabel("0", SwingConstants.CENTER);
         E8.setBorder(BorderFactory.createLineBorder(Color.black));
         E8.setLocation(130, 260);
         E8.setSize(new Dimension(50, 100));
@@ -128,7 +140,7 @@ public class Main extends JFrame {
         E8.setVerticalTextPosition(SwingConstants.BOTTOM);
         E8.setHorizontalTextPosition(SwingConstants.CENTER);
 
-        JLabel E9 = new JLabel("0", SwingConstants.CENTER);
+		E9 = new JLabel("0", SwingConstants.CENTER);
         E9.setBorder(BorderFactory.createLineBorder(Color.black));
         E9.setLocation(190, 260);
         E9.setSize(new Dimension(50, 100));
@@ -138,7 +150,7 @@ public class Main extends JFrame {
         E9.setVerticalTextPosition(SwingConstants.BOTTOM);
         E9.setHorizontalTextPosition(SwingConstants.CENTER);
 
-        JLabel E10 = new JLabel("0", SwingConstants.CENTER);
+		E10 = new JLabel("0", SwingConstants.CENTER);
         E10.setBorder(BorderFactory.createLineBorder(Color.black));
         E10.setLocation(250, 260);
         E10.setSize(new Dimension(50, 100));
@@ -155,13 +167,13 @@ public class Main extends JFrame {
 		textArea.setLocation( 600, 0);
 		*/
 
-        JLabel PeopleInTransit = new JLabel("People in transit: 0");
+		PeopleInTransit = new JLabel("People in transit: 0");
         PeopleInTransit.setBorder(BorderFactory.createLineBorder(Color.black));
         PeopleInTransit.setLocation(400, 100);
         PeopleInTransit.setSize(200, 50);
         PeopleInTransit.setLayout(null);
 
-        JLabel FloorsWithPeople = new JLabel("Floors with people: None");
+		FloorsWithPeople = new JLabel("Floors with people: None");
         FloorsWithPeople.setBorder(BorderFactory.createLineBorder(Color.black));
         FloorsWithPeople.setLocation(400, 150);
         FloorsWithPeople.setSize(200, 50);
@@ -227,7 +239,7 @@ public class Main extends JFrame {
         InputStream is = Main.class.getResourceAsStream("elevator_practice3.json");
         try {
             Input input = Parser.parseInput(is);
-            Controller controller = new Controller(input.floors, input.elevators);
+            Controller controller = new Controller(input.floors, input.elevators, main);
             int i;
             List<OutputElement> outputs = new ArrayList<>();
             for (i = 0; i < Constant.ITERATIONS; i++) {
