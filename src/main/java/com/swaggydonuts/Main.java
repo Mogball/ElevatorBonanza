@@ -3,6 +3,7 @@ package com.swaggydonuts;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
 import java.io.InputStream;
@@ -186,17 +187,22 @@ public class Main {
 			Input input = Parser.parseInput(is);
 			Controller controller = new Controller(input.floors, input.elevators);
 			int i;
+			List<OutputElement> outputs = new ArrayList<>();
 			for (i = 0; i < Constant.ITERATIONS; i++) {
+				outputs.add(new OutputElement(i, controller));
 				Cheat.i = i;
 				List<Event> events = input.events[i];
 				for (Event event : events) controller.send(event);
 				controller.update();
 			}
 			while (controller.peopleRemaining() != 0) {
+				outputs.add(new OutputElement(i, controller));
 				controller.update();
 				i++;
 				Cheat.i = i;
 			}
+			outputs.add(new OutputElement(i, controller));
+			Output.writeOutput(outputs, "output.txt");
 			print(controller);
 			print(Cheat.totalTime);
 			print(Cheat.people);

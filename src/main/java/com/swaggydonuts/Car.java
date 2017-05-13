@@ -41,6 +41,7 @@ public class Car {
 
 	public boolean isValid(Person pr) {
 		Event e = pr.e;
+		if (events.size() + people.size() >= 5) return false;
 		if (state == 0) return true;
 		if (e.start > e.end) {
 			// Person going down
